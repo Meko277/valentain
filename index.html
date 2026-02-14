@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        h1 { color: #d32f2f; }
+        .buttons { margin-top: 20px; position: relative; width: 300px; height: 100px; }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #yesBtn { background-color: #4caf50; color: white; }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will you be my Valentine? ❤️</h1>
+    <div id="gif-container">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGh4emxqODBhZHkzdnIzN2htMzA2c2liOXE3OXVlOGh6a3k5NW9jOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HfCGbGr7iVtdVmUmha/giphy.gif" width="200">
+    </div>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="celebrate()">Yes</button>
+        <button id="noBtn" onmouseover="moveButton()">No</button>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            // Randomly move the button within the window
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.body.innerHTML = `
+                <h1>Yay! I knew you'd say yes! 🥰</h1>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Z5eXN6eHpsNnB6eHpsNnB6eHpsNnB6eHpsNnB6eHpsNnB6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" width="300">
+                <p>See you on the 14th!</p>
+            `;
+        }
+    </script>
+</body>
+</html>
